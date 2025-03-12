@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>QUIZ-GAME NARAVIT</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <nav class="nav-wrapper black">
+        <div class="container">
+            <a href="#home.html" class="brand-logo center">QUIZ</a>
+        </div>
+    </nav>
+
+    <section class="container section">
+        <div class="row">
+            <div class="col s12 l6 offset-l3">
+                <form class="myform" name="id" onsubmit="submitted(event)">
+                    <h4 class="center-align white-text">NAMA PESERTA</h4>
+                    <div class="progress blue">
+                        <div class="indeterminate"></div>
+                    </div>
+
+                    <div class="input-field">               
+                        <i class="material-icons white-text prefix">account_box</i>
+                        <input type="text" class="white-text" id="name" required>
+                        <label for="name">Name Here</label>
+                    </div>
+
+                    <div>
+                        <p class="white-text center lightblack">ATURAN KUIS:</p>
+                        <p class="white-text center lightblack">ANDA TIDAK BOLEH MELEWATI SATU PERTANYAAN.</p>
+                        <p class="white-text center lightblack">ANDA TIDAK BOLEH LANJUT KE PERTANYAAN SEBELUMNYA.</p>
+                        <p class="white-text center lightblack">COBALAH SEMUANYA TANPA MENYINTAI.</p>
+                    </div>
+
+                    <div class="progress blue">
+                        <div class="indeterminate"></div>
+                    </div>
+
+                    <p class="center">
+                        <button type="submit" class="btn grey">SIMPAN NAMA</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        function submitted(e) {
+            e.preventDefault();
+            let name = document.forms["id"]["name"].value;
+            if (name == "") {
+                alert("Nama tidak boleh kosong!");
+                return;
+            }
+            sessionStorage.setItem("name", name);
+            window.location.href = "quiz.html";
+        }
+    </script>
+</body>
+</html>
